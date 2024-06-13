@@ -96,6 +96,11 @@ function App() {
           Send
         </Button>
       </Box>
+      <Box sx={{ textAlign: "right" }}>
+        <a href="https://github.com/thomasoniii/goat-gpt" target="_blank">
+          https://github.com/thomasoniii/goat-gpt
+        </a>
+      </Box>
     </Box>
   );
 }
