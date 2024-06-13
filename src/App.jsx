@@ -24,9 +24,9 @@ function App() {
   }, [msgs]);
 
   const appendMsg = () => {
-    const goat = ["Baah"];
-    for (let i = 0; i < Math.floor(Math.random() * 6); i++) {
-      goat.push("B" + "a".repeat(Math.floor(Math.random() * 10)) + "h");
+    const goat = [];
+    for (let i = 0; i < 1 + Math.floor(Math.random() * 6); i++) {
+      goat.push("B" + "a".repeat(1 + Math.floor(Math.random() * 9)) + "h");
     }
 
     addMsg([
