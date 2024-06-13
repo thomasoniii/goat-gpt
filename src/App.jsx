@@ -37,7 +37,7 @@ function App() {
     setMsg("");
   };
 
-  const GoatIcon = <img src="/goat.jpg" width="32" height="32" />;
+  const GoatIcon = <img src="/goat-gpt/goat.jpg" width="32" height="32" />;
 
   return (
     <Box>
