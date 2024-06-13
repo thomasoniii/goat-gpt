@@ -90,6 +90,7 @@ function App() {
               appendMsg();
             }
           }}
+          autoFocus
         />
 
         <Button variant="contained" onClick={appendMsg} sx={{ m: 1 }}>
