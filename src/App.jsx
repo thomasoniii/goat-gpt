@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect, useMemo } from "react";
-import "./App.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import UserIcon from "@mui/icons-material/Person";
+import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
@@ -71,70 +71,73 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box>
-        <Typography variant="h2" gutterBottom align="center">
-          Goat GPT
-        </Typography>
-        <List
-          component="section"
-          sx={{
-            p: 2,
-            border: "1px dashed grey",
-            height: "500px",
-            overflow: "scroll",
-            width: "500px",
-            mb: 1,
-          }}
-        >
-          {msgs.map((msg) => (
-            <ListItem
-              key={msg.key}
-              sx={{
-                display: "flex",
-                justifyContent: msg.type === "goat" ? "flex-end" : "flex-start",
-                color: "black",
-                backgroundColor: msg.type === "goat" ? "#DDFFDD" : "#FFDDFF",
-              }}
-            >
-              {msg.type === "goat" ? "" : <UserIcon />}
-              {msg.msg}
-              {msg.type === "goat" ? GoatIcon : ""}
-            </ListItem>
-          ))}
-          <ListItem ref={scrollRef} />
-        </List>
-        <Box
-          sx={{
-            border: "1px solid black",
-            p: 1,
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <TextField
-            sx={{ m: 1 }}
-            size="small"
-            fullWidth
-            value={msg}
-            onChange={(e) => setMsg(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                appendMsg();
-              }
-            }}
-            autoFocus
-          />
+      <Container sx={{ width: "100vw" }}>
+        <Box>
+          <Typography variant="h2" gutterBottom align="center">
+            Goat GPT
+          </Typography>
+          <List
+            component="section"
+            sx={{
+              p: 2,
+              border: "1px dashed grey",
+              maxHeight: "35rem",
+              overflow: "scroll",
 
-          <Button variant="contained" onClick={appendMsg} sx={{ m: 1 }}>
-            Send
-          </Button>
+              mb: 1,
+            }}
+          >
+            {msgs.map((msg) => (
+              <ListItem
+                key={msg.key}
+                sx={{
+                  display: "flex",
+                  justifyContent:
+                    msg.type === "goat" ? "flex-end" : "flex-start",
+                  color: "black",
+                  backgroundColor: msg.type === "goat" ? "#DDFFDD" : "#FFDDFF",
+                }}
+              >
+                {msg.type === "goat" ? "" : <UserIcon />}
+                {msg.msg}
+                {msg.type === "goat" ? GoatIcon : ""}
+              </ListItem>
+            ))}
+            <ListItem ref={scrollRef} />
+          </List>
+          <Box
+            sx={{
+              border: "1px solid black",
+              p: 1,
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <TextField
+              sx={{ m: 1 }}
+              size="small"
+              fullWidth
+              value={msg}
+              onChange={(e) => setMsg(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  appendMsg();
+                }
+              }}
+              autoFocus
+            />
+
+            <Button variant="contained" onClick={appendMsg} sx={{ m: 1 }}>
+              Send
+            </Button>
+          </Box>
+          <Box sx={{ textAlign: "right" }}>
+            <a href="https://github.com/thomasoniii/goat-gpt" target="_blank">
+              https://github.com/thomasoniii/goat-gpt
+            </a>
+          </Box>
         </Box>
-        <Box sx={{ textAlign: "right" }}>
-          <a href="https://github.com/thomasoniii/goat-gpt" target="_blank">
-            https://github.com/thomasoniii/goat-gpt
-          </a>
-        </Box>
-      </Box>
+      </Container>
     </ThemeProvider>
   );
 }
